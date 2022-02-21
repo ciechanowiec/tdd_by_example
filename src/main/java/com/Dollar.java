@@ -1,8 +1,6 @@
 package com;
 
-public class Dollar {
-
-    private int amount;
+public class Dollar extends Money {    
 
     public Dollar(int amount) {
         this.amount = amount;
@@ -18,12 +16,6 @@ public class Dollar {
         int result = 1;
         result = prime * result + amount;
         return result;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        Dollar comparedDollar = (Dollar) object;
-        return this.amount == comparedDollar.amount;        
     }
     
 }
