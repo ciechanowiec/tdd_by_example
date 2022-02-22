@@ -11,11 +11,11 @@ public class Money {
     }
 
     static Money dollar(int amount) {
-        return new Dollar(amount, "USD");
+        return new Money(amount, "USD");
     }
 
     static Money franc(int amount) {
-        return new Franc(amount, "CHF");
+        return new Money(amount, "CHF");
     }
 
     public Money times(int multiplier) {
@@ -29,11 +29,11 @@ public class Money {
                && this.currency().equals(comparedMoney.currency());        
     }    
 
-
     String currency() {
         return this.currency;
     }    
 
+    @Override
     public String toString() {
         return this.amount + " " + this.currency;
     }
