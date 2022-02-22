@@ -1,6 +1,6 @@
 package com;
 
-public class Money {
+public class Money implements Expression {
 
     protected String currency;    
     protected int amount;        
@@ -18,7 +18,7 @@ public class Money {
         return new Money(amount, "CHF");
     }
 
-    public Money times(int multiplier) {
+    Money times(int multiplier) {
         return new Money(this.amount * multiplier, this.currency);
     }
 
@@ -28,6 +28,10 @@ public class Money {
         return this.amount == comparedMoney.amount
                && this.currency().equals(comparedMoney.currency());        
     }    
+
+    Expression plus(Money addend) {
+        return new Money(this.amount + addend.amount, this.currency);
+    }
 
     String currency() {
         return this.currency;
