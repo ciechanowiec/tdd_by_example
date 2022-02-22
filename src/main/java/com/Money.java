@@ -30,12 +30,16 @@ public class Money implements Expression {
     }    
 
     Expression plus(Money addend) {
-        return new Money(this.amount + addend.amount, this.currency);
+        return new Sum(this, addend);
     }
 
     String currency() {
         return this.currency;
     }    
+
+    public Money reduce(String to) {
+        return this;
+    }
 
     @Override
     public String toString() {
