@@ -1,10 +1,9 @@
 package com;
 
-public abstract class Money {
+public class Money {
 
     protected String currency;    
-    protected int amount;    
-    abstract Money times(int multiplier);    
+    protected int amount;        
 
     Money(int amount, String currency) {
         this.amount = amount;
@@ -19,15 +18,24 @@ public abstract class Money {
         return new Franc(amount, "CHF");
     }
 
+    public Money times(int multiplier) {
+        return new Money(this.amount * multiplier, this.currency);
+    }
+
     @Override
     public boolean equals(Object object) {
         Money comparedMoney = (Money) object;
         return this.amount == comparedMoney.amount
-               && this.getClass().equals(comparedMoney.getClass());        
+               && this.currency().equals(comparedMoney.currency());        
     }    
+
 
     String currency() {
         return this.currency;
+    }    
+
+    public String toString() {
+        return this.amount + " " + this.currency;
     }
     
 }
